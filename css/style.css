@@ -71,7 +71,7 @@ body .card {
   justify-content: center;
   align-items: center;
   position: relative;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 body .card::before,
