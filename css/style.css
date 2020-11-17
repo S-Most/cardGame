@@ -30,11 +30,11 @@ body .deck {
 }
 
 body .computer-deck {
-  background: blue;
+  background: coral;
 }
 
 body .player-deck {
-  background: green;
+  background: cornflowerblue;
 }
 
 body .text {
