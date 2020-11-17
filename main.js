@@ -139,6 +139,3 @@ function pushToWinner(winner){
         winner.push(potDeck.pop())
     }
 }
-
-// check if there is an Ace in play
-// if there is, use a different value map
