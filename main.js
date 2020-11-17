@@ -22,7 +22,7 @@ const computerDeckElem = document.querySelector(".computer-deck")
 const playerDeckElem = document.querySelector(".player-deck")
 const text = document.querySelector(".text")
 
-let playerDeck, computerDeck, inRound, stop
+let playerDeck, computerDeck, potDeck, inRound, stop
 
 document.addEventListener("click" , () => {
     if (stop){
@@ -44,7 +44,7 @@ function startGame() {
     
     playerDeck = new Deck(deck.cards.slice(0,midDeck))
     computerDeck = new Deck(deck.cards.slice(midDeck, deck.numberOfCards))
-    
+    potDeck = new Deck([])
     inRound = false
     stop = false
 
@@ -81,14 +81,18 @@ function flipCards() {
         text.innerText="Win!"
         playerDeck.push(playerCard)
         playerDeck.push(computerCard)
+        pushToWinner(playerDeck)
+
     } else if (isRoundWinner(computerCard, playerCard)){
         text.innerText="Lose!"
         computerDeck.push(playerCard)
         computerDeck.push(computerCard)
+        pushToWinner(computerDeck)
+
     } else {
         text.innerText="Draw"
-        playerDeck.push(playerCard)
-        computerDeck.push(computerCard)
+        potDeck.push(playerCard)
+        potDeck.push(computerCard)
     }
 
     if(gameOver(playerDeck)){
@@ -106,4 +110,16 @@ function isRoundWinner(cardOne, cardTwo) {
 
 function gameOver(deck) {
     return deck.numberOfCards ===0
+}
+
+function checkDraw() {
+    return potDeck.numberOfCards > 0
+}
+
+function pushToWinner(winner){
+    while (checkDraw()){
+        winner.push(potDeck.cards[0])
+        potDeck.cards.shift()
+        console.log("pushed card to winner")
+    }
 }
