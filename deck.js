@@ -78,7 +78,7 @@ function freshDeck() {
 
 function testDeck() {
     return SUITS.flatMap((suit) => {
-        return VALUES.slice(0,3).map((value) => {
+        return VALUES.slice(0,5).map((value) => {
             return new Card(suit, value);
         })
     })
