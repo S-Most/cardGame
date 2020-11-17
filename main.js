@@ -16,6 +16,22 @@ const CARD_VALUE_MAP = {
     "A": 14
 }
 
+const CARD_VALUE_MAP_ACE = {
+    "2": 15,
+    "3": 3,
+    "4": 4,
+    "5": 5,    
+    "6": 6,
+    "7": 7,
+    "8": 8,
+    "9": 9,
+    "10": 10,
+    "J": 11,
+    "Q": 12,
+    "K": 13,
+    "A": 14
+}
+
 const computerCardSlot = document.querySelector(".computer-card-slot")
 const playerCardSlot = document.querySelector(".player-card-slot")
 const computerDeckElem = document.querySelector(".computer-deck")
@@ -96,16 +112,18 @@ function flipCards() {
     }
 
     if(gameOver(playerDeck)){
-        text.innerText("YOU LOST!")
+        text.innerText="YOU LOST!"
         stop = true;
     } else if(gameOver(computerDeck)){
-        text.innerText("YOU WON!")
+        text.innerText="YOU WON!"
         stop = true;
     }
 }
 
 function isRoundWinner(cardOne, cardTwo) {
-    return CARD_VALUE_MAP[cardOne.value] > CARD_VALUE_MAP[cardTwo.value]
+    if (cardOne.value === "A" || cardTwo.value ==="A")
+    { return CARD_VALUE_MAP_ACE[cardOne.value] > CARD_VALUE_MAP_ACE[cardTwo.value]} else{
+    return CARD_VALUE_MAP[cardOne.value] > CARD_VALUE_MAP[cardTwo.value]}
 }
 
 function gameOver(deck) {
@@ -118,8 +136,9 @@ function checkDraw() {
 
 function pushToWinner(winner){
     while (checkDraw()){
-        winner.push(potDeck.cards[0])
-        potDeck.cards.shift()
-        console.log("pushed card to winner")
+        winner.push(potDeck.pop())
     }
 }
+
+// check if there is an Ace in play
+// if there is, use a different value map

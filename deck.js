@@ -17,7 +17,8 @@ const VALUES = [
 ]
 
 export default class Deck {
-    constructor(cards = freshDeck()) {
+    // constructor(cards = freshDeck()) {
+    constructor(cards = testDeck()) {
         this.cards = cards
         this.shuffle()
     }
@@ -75,4 +76,10 @@ function freshDeck() {
     })
 }
 
-
+function testDeck() {
+    return SUITS.flatMap((suit) => {
+        return VALUES.slice(0,3).map((value) => {
+            return new Card(suit, value);
+        })
+    })
+}
