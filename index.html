@@ -9,18 +9,26 @@
     </head>
 
     <body>
-        <div class="computer-deck deck"></div>
+        <div class="gameWrapper">
+            <div class="computer-deck deck"></div>
 
-        <div class="computer-card-slot card-slot"></div>
+            <div class="computer-card-slot card-slot"></div>
 
-        <div class="text"></div>
+            <div class="text"></div>
 
-        <div class="player-deck deck"></div>
+            <div class="player-deck deck"></div>
 
-        <div class="player-card-slot card-slot"></div>
+            <div class="player-card-slot card-slot"></div>
 
-        <div class="buttoncontainer">
-            <button class="autoPlay">AutoPlay</button>
+            <div class="buttoncontainer">
+                <button class="autoPlay">AutoPlay</button>
+            </div>
         </div>
+        <form>
+            <label for="fCards">Cards per Suit:</label>
+            <input type="text" id="fCards" name="fCards"><br><br>
+            <input type="submit" value="Submit">
+          </form>
+        </form>
     </body>
 </html>

@@ -32,6 +32,8 @@ const CARD_VALUE_MAP_ACE = {
     "A": 14
 }
 
+const form = document.querySelector("form")
+const gameWrapper = document.querySelector(".gameWrapper")
 const computerCardSlot = document.querySelector(".computer-card-slot")
 const playerCardSlot = document.querySelector(".player-card-slot")
 const computerDeckElem = document.querySelector(".computer-deck")
@@ -40,14 +42,31 @@ const text = document.querySelector(".text")
 const autoPlayBtn = document.querySelector(".autoPlay")
 
 let playerDeck, computerDeck, potDeck, inRound, stop, pause
+let gameStarted = false
+
+
+form.addEventListener('submit', function getTarget(e) {
+    e.preventDefault()
+    gameWrapper.style.display = "grid";
+    gameStarted = true; 
+    let suits = 4;
+    let values = 4;
+    //todo create new deck from it
+    // var newPostf = new Post(jsTitleInput, jsImageInput, jsTextInput); 
+    const deck = new Deck()
+    startGame(deck)
+    form.style.display ="none";
+   });
 
 
 autoPlayBtn.addEventListener("click", () => {
     if(pause){
         pause=false
         autoPlay()
+        autoPlayBtn.innerText="Pause"
     } else{
         pause=true
+        autoPlayBtn.innerText="AutoPlay"
     }
 
 })
@@ -71,7 +90,10 @@ if (!pause){
     }
   }
 }
+
 document.addEventListener("click" , () => {
+    if(gameStarted){
+
     if (stop){
         startGame()
         return
@@ -82,11 +104,13 @@ document.addEventListener("click" , () => {
     } else {
         flipCards()
     }
+            
+}
 })
 
-startGame()
-function startGame() {
-    const deck = new Deck()
+// startGame()
+function startGame(deck) {
+    // const deck = new Deck()
     const midDeck = Math.ceil(deck.numberOfCards / 2)
     
     playerDeck = new Deck(deck.cards.slice(0,midDeck))

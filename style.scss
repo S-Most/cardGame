@@ -8,8 +8,9 @@
     box-sizing: border-box;
 }
 
-body {
-    display: grid;
+body .gameWrapper {
+    display: none;
+    // display: grid;
     margin: 0;
     grid-template-columns: 7.5rem 7.5rem;
     grid-template-rows: 12rem 4rem 12rem;
@@ -19,16 +20,6 @@ body {
     margin-top: 2rem;
     user-select: none;
     overflow: hidden;
-
-    img {
-        position: absolute;
-        top: 0;
-        display: inline;
-        height: 100%;
-        width: 100%;
-        z-index: -1;
-        overflow: hidden;
-    }
 
     .deck {
         height: 100%;

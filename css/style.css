@@ -7,8 +7,8 @@
   box-sizing: border-box;
 }
 
-body {
-  display: grid;
+body .gameWrapper {
+  display: none;
   margin: 0;
   grid-template-columns: 7.5rem 7.5rem;
   grid-template-rows: 12rem 4rem 12rem;
@@ -20,17 +20,7 @@ body {
   overflow: hidden;
 }
 
-body img {
-  position: absolute;
-  top: 0;
-  display: inline;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  overflow: hidden;
-}
-
-body .deck {
+body .gameWrapper .deck {
   height: 100%;
   width: 100%;
   color: white;
@@ -43,27 +33,27 @@ body .deck {
   user-select: none;
 }
 
-body .computer-deck {
+body .gameWrapper .computer-deck {
   background: coral;
 }
 
-body .player-deck {
+body .gameWrapper .player-deck {
   background: cornflowerblue;
 }
 
-body .buttoncontainer {
+body .gameWrapper .buttoncontainer {
   grid-column: span 2;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-body .buttoncontainer button {
+body .gameWrapper .buttoncontainer button {
   padding: 1rem 2rem;
   margin-top: 1rem;
 }
 
-body .text {
+body .gameWrapper .text {
   grid-column: span 2;
   display: flex;
   justify-content: center;
@@ -72,7 +62,7 @@ body .text {
   font-family: "Press Start 2P", cursive;
 }
 
-body .card {
+body .gameWrapper .card {
   height: 100%;
   width: 100%;
   border: 1px solid #000;
@@ -85,29 +75,29 @@ body .card {
   font-size: 3rem;
 }
 
-body .card::before,
-body .card::after {
+body .gameWrapper .card::before,
+body .gameWrapper .card::after {
   content: attr(data-value);
   position: absolute;
   font-size: 2rem;
 }
 
-body .card::before {
+body .gameWrapper .card::before {
   top: 1rem;
   left: 1rem;
 }
 
-body .card::after {
+body .gameWrapper .card::after {
   bottom: 1rem;
   right: 1rem;
   transform: rotate(180deg);
 }
 
-body .red {
+body .gameWrapper .red {
   color: red;
 }
 
-body .black {
+body .gameWrapper .black {
   color: black;
 }
 /*# sourceMappingURL=style.css.map */
