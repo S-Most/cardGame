@@ -37,9 +37,40 @@ const playerCardSlot = document.querySelector(".player-card-slot")
 const computerDeckElem = document.querySelector(".computer-deck")
 const playerDeckElem = document.querySelector(".player-deck")
 const text = document.querySelector(".text")
+const autoPlayBtn = document.querySelector(".autoPlay")
 
-let playerDeck, computerDeck, potDeck, inRound, stop
+let playerDeck, computerDeck, potDeck, inRound, stop, pause
 
+
+autoPlayBtn.addEventListener("click", () => {
+    if(pause){
+        pause=false
+        autoPlay()
+    } else{
+        pause=true
+    }
+
+})
+
+function autoPlay(){
+if (!pause){
+    if (stop){
+        startGame()
+        return
+    }
+
+    if(inRound){
+        beforeRound()
+    } else {
+        flipCards()
+    }
+
+    if (!stop){
+        window.setTimeout(autoPlay,100);
+
+    }
+  }
+}
 document.addEventListener("click" , () => {
     if (stop){
         startGame()
@@ -63,6 +94,7 @@ function startGame() {
     potDeck = new Deck([])
     inRound = false
     stop = false
+    pause=true
 
     beforeRound()
 }

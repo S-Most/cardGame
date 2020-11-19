@@ -51,6 +51,18 @@ body .player-deck {
   background: cornflowerblue;
 }
 
+body .buttoncontainer {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body .buttoncontainer button {
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+}
+
 body .text {
   grid-column: span 2;
   display: flex;
@@ -58,7 +70,6 @@ body .text {
   align-items: center;
   font-size: 2rem;
   font-family: "Press Start 2P", cursive;
-  color: white;
 }
 
 body .card {
