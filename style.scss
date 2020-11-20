@@ -111,6 +111,7 @@ body .gameWrapper {
         content: attr(data-value);
         position: absolute;
         font-size: 2rem;
+        letter-spacing: -2px;
     }
 
     .card::before {

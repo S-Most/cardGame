@@ -65,21 +65,11 @@ class Card {
     }
 }
 
-
-
 //global functions ------------------------------
 
 function generateDeck(numSuits, numValues){
     return SUITS.slice(0,numSuits).flatMap((suit) => {
         return VALUES.slice(0,numValues).map((value) => {
-            return new Card(suit, value);
-        })
-    })
-}
-
-function freshDeck() {
-    return SUITS.flatMap((suit) => {
-        return VALUES.map((value) => {
             return new Card(suit, value);
         })
     })
