@@ -16,8 +16,25 @@ form {
   align-items: center;
 }
 
+form label {
+  margin-bottom: -1.5rem;
+}
+
 form input {
   width: 60%;
+  max-width: 400px;
+  text-align: center;
+  margin: 2rem;
+}
+
+form #submit {
+  padding: 0.5rem;
+  background: coral;
+  border: none;
+  border-radius: 1rem;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 4px;
 }
 
 body .gameWrapper {

@@ -1,4 +1,4 @@
-const SUITS = ["♥", "♦", "♣", "♠"]
+const SUITS = ["♥", "♠", "♦", "♣"]
 const SUITADDITION = ["✪"]
 const VALUES = [
     "A",

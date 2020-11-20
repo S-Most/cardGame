@@ -50,7 +50,7 @@ form.addEventListener('submit', function getTarget(e) {
     gameWrapper.style.display = "grid";
     gameStarted = true; 
     let suits = e.target.children[1].value;
-    let values = e.target.children[5].value;
+    let values = e.target.children[3].value;
     if (!suits || !values){suits = 1; values=6;}
     const deckTotal = new Deck(suits, values)
     deckTotal.shuffle()
