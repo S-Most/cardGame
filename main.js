@@ -49,12 +49,13 @@ form.addEventListener('submit', function getTarget(e) {
     e.preventDefault()
     gameWrapper.style.display = "grid";
     gameStarted = true; 
-    let suits = 4;
-    let values = 4;
-    //todo create new deck from it
-    // var newPostf = new Post(jsTitleInput, jsImageInput, jsTextInput); 
-    const deck = new Deck()
-    startGame(deck)
+    let suits = e.target.children[1].value;
+    let values = e.target.children[5].value;
+    if (!suits || !values){suits = 1; values=6;}
+    const deckTotal = new Deck(suits, values)
+    deckTotal.shuffle()
+    startGame(deckTotal)
+    form.reset()
     form.style.display ="none";
    });
 
@@ -71,54 +72,53 @@ autoPlayBtn.addEventListener("click", () => {
 
 })
 
+function restart(){
+    form.style.display ="flex";
+    gameWrapper.style.display = "none";
+
+}
+
 function autoPlay(){
 if (!pause){
-    if (stop){
-        startGame()
-        return
-    }
-
-    if(inRound){
-        beforeRound()
-    } else {
-        flipCards()
-    }
+    playRound()
 
     if (!stop){
         window.setTimeout(autoPlay,100);
-
     }
   }
 }
 
+function playRound(){
+    if (stop){
+        restart()
+
+    } else{
+
+        if (inRound){
+            beforeRound()
+        } else {
+            flipCards()
+        }
+    }
+}
+
 document.addEventListener("click" , () => {
     if(gameStarted){
-
-    if (stop){
-        startGame()
-        return
+        playRound()
     }
-    
-    if(inRound){
-        beforeRound()
-    } else {
-        flipCards()
-    }
-            
-}
 })
 
-// startGame()
 function startGame(deck) {
-    // const deck = new Deck()
+
     const midDeck = Math.ceil(deck.numberOfCards / 2)
-    
-    playerDeck = new Deck(deck.cards.slice(0,midDeck))
-    computerDeck = new Deck(deck.cards.slice(midDeck, deck.numberOfCards))
-    potDeck = new Deck([])
-    inRound = false
-    stop = false
-    pause=true
+    // create Decks
+    playerDeck      = new Deck(0,0, deck.cards.slice(0,midDeck))
+    computerDeck    = new Deck(0,0, deck.cards.slice(midDeck, deck.numberOfCards))
+    potDeck         = new Deck([])
+
+    //set parameters
+    stop    = false
+    pause   = true
 
     beforeRound()
 }
@@ -169,9 +169,11 @@ function flipCards() {
 
     if(gameOver(playerDeck)){
         text.innerText="YOU LOST!"
+        autoPlayBtn.innerText="AutoPlay"
         stop = true;
     } else if(gameOver(computerDeck)){
         text.innerText="YOU WON!"
+        autoPlayBtn.innerText="AutoPlay"
         stop = true;
     }
 }

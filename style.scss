@@ -8,6 +8,19 @@
     box-sizing: border-box;
 }
 
+form {
+    margin-top: 3rem;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    input {
+        width: 60%;
+    }
+}
+
 body .gameWrapper {
     display: none;
     // display: grid;

@@ -15,20 +15,14 @@ const VALUES = [
     "Q",
     "K",
 ]
-function generateDeck(numSuits, numValues){
-    return SUITS.slice(0,numSuits).flatMap((suit) => {
-        return VALUES.slice(0,numValues).map((value) => {
-            return new Card(suit, value);
-        })
-    })
-}
+
 export default class Deck {
-    constructor(cards = freshDeck()) {
+    constructor(suits, values, cards = generateDeck(suits,values)) {
+        
         this.cards = cards
         this.shuffle()
+        console.log("new", this.cards)
     }
-
-    //second constructor
 
     get numberOfCards() {
         return this.cards.length
@@ -75,6 +69,14 @@ class Card {
 
 //global functions ------------------------------
 
+function generateDeck(numSuits, numValues){
+    return SUITS.slice(0,numSuits).flatMap((suit) => {
+        return VALUES.slice(0,numValues).map((value) => {
+            return new Card(suit, value);
+        })
+    })
+}
+
 function freshDeck() {
     return SUITS.flatMap((suit) => {
         return VALUES.map((value) => {
@@ -83,11 +85,4 @@ function freshDeck() {
     })
 }
 
-function _6x6Deck() {
-    return SUITS.flatMap((suit) => {
-        return VALUES.slice(0,3).map((value) => {
-            return new Card(suit, value);
-        })
-    })
-}
 
