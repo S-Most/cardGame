@@ -131,4 +131,10 @@ body .gameWrapper .red {
 body .gameWrapper .black {
   color: black;
 }
+
+@media all and (min-width: 600px) {
+  body .gameWrapper .card {
+    font-size: 6rem;
+  }
+}
 /*# sourceMappingURL=style.css.map */

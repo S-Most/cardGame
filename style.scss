@@ -133,3 +133,9 @@ body .gameWrapper {
         color: black;
     }
 }
+
+@media all and (min-width: 600px) {
+    body .gameWrapper .card {
+        font-size: 6rem;
+    }
+}
