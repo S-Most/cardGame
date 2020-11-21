@@ -45,7 +45,6 @@ const deckColorBtn = document.querySelector(".setDeckColor")
 let playerDeck, computerDeck, potDeck, inRound, stop, pause
 let gameStarted = false
 
-
 form.addEventListener('submit', function getTarget(e) {
     e.preventDefault()
     gameWrapper.style.display = "grid";
@@ -60,6 +59,16 @@ form.addEventListener('submit', function getTarget(e) {
     form.style.display ="none";
     autoPlayBtn.innerText="AutoPlay"
    });
+
+document.addEventListener("click" , () => {
+    deckColorBtn.addEventListener("click", () => {
+    gameStarted = 0
+    })
+    if(gameStarted){
+        playRound()
+    }
+    gameStarted = 1
+})
 
 deckColorBtn.addEventListener("click", () => {
     let colorArray = ["red","yellow","blue","coral","orange","black","purple","magenta"]
@@ -109,12 +118,6 @@ function playRound(){
         }
     }
 }
-
-document.addEventListener("click" , () => {
-    if(gameStarted){
-        playRound()
-    }
-})
 
 function startGame(deck) {
 
