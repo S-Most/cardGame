@@ -40,6 +40,7 @@ const computerDeckElem = document.querySelector(".computer-deck")
 const playerDeckElem = document.querySelector(".player-deck")
 const text = document.querySelector(".text")
 const autoPlayBtn = document.querySelector(".autoPlay")
+const deckColorBtn = document.querySelector(".setDeckColor")
 
 let playerDeck, computerDeck, potDeck, inRound, stop, pause
 let gameStarted = false
@@ -57,8 +58,15 @@ form.addEventListener('submit', function getTarget(e) {
     startGame(deckTotal)
     form.reset()
     form.style.display ="none";
+    autoPlayBtn.innerText="AutoPlay"
    });
 
+deckColorBtn.addEventListener("click", () => {
+    let colorArray = ["red","yellow","blue","coral","orange","black","purple","magenta"]
+    let rand = Math.floor(Math.random()*5)
+    playerDeckElem.style.backgroundColor = colorArray[rand]
+    computerDeckElem.style.backgroundColor = colorArray[7-rand]
+})
 
 autoPlayBtn.addEventListener("click", () => {
     if(pause){

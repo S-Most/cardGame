@@ -74,6 +74,7 @@ body .gameWrapper .player-deck {
 body .gameWrapper .buttoncontainer {
   grid-column: span 2;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
