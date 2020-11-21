@@ -21,7 +21,7 @@ form {
     }
 
     input {
-        width: 60%;
+        width: 50%;
         max-width: 400px;
         text-align: center;
         margin: 2rem;
@@ -39,7 +39,6 @@ form {
 
 body .gameWrapper {
     display: none;
-    // display: grid;
     margin: 0;
     grid-template-columns: 7.5rem 7.5rem;
     grid-template-rows: 12rem 4rem 12rem;
