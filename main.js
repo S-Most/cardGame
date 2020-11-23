@@ -42,7 +42,7 @@ const text = document.querySelector(".text")
 const autoPlayBtn = document.querySelector(".autoPlay")
 const deckColorBtn = document.querySelector(".setDeckColor")
 
-let playerDeck, computerDeck, potDeck, inRound, stop, pause
+let playerDeck, computerDeck, potDeck, inRound, stop, pause, randColor
 let gameStarted = false
 
 form.addEventListener('submit', function getTarget(e) {
@@ -71,10 +71,14 @@ document.addEventListener("click" , () => {
 })
 
 deckColorBtn.addEventListener("click", () => {
-    let colorArray = ["red","yellow","blue","coral","orange","black","purple","magenta"]
+    let colorArray = ["red","cornflowerblue","blue","coral","orange","darkgreen","purple","magenta"]
     let rand = Math.floor(Math.random()*5)
+    if (rand === randColor){
+        rand = 7-rand
+    }
     playerDeckElem.style.backgroundColor = colorArray[rand]
     computerDeckElem.style.backgroundColor = colorArray[7-rand]
+    randColor = rand
 })
 
 autoPlayBtn.addEventListener("click", () => {
