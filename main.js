@@ -71,7 +71,7 @@ document.addEventListener("click" , () => {
 })
 
 deckColorBtn.addEventListener("click", () => {
-    let colorArray = ["red","cornflowerblue","blue","coral","orange","darkgreen","purple","magenta"]
+    let colorArray = ["red","cornflowerblue","blue","darkgreen","orange","coral","purple","magenta"]
     let rand = Math.floor(Math.random()*5)
     if (rand === randColor){
         rand = 7-rand
